@@ -39,6 +39,9 @@ public class FeatureGenLargeVein extends FeatureBase {
 		oreDensity = (oreDensity * 0.01f * (oreDistance >> 1)) + 1f;
 		int i = (int) oreDensity;
 		int rnd = oreDistance / i;
+		// Random.nextInt() will return only 0 if rnd is 1 or less
+		if (rnd <= 1)
+			return 0;
 		int r = 0;
 		for (; i > 0; --i) {
 			r += rand.nextInt(rnd);
